@@ -1,0 +1,25 @@
+table, tr, td {
+    border: solid black;
+    padding: 20px;
+    text-align: center;
+}
+
+.lixo{
+    height: 50px;
+    width: 50px;
+}
+
+ .i1 {
+    width: 1000px;
+}
+
+#i2 {
+    width: 200px;
+    height: 295px;
+}
+        
+#i3 {
+    width: 790px;
+    height: 295px;
+
+    }
