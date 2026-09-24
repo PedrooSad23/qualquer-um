@@ -11,17 +11,22 @@
     <label class="form">Login de Usuário</label>
     <hr>
 
-    <!-- Aqui aponta para o seu arquivo de verificação -->
     <form action="../verifica/verifica_login.php" method="post">
 
         <label class="atributo" for="email">Email:</label>
+
         <br>
+
         <input type="text" id="email" name="email" class="input" placeholder="Digite seu email" required>
+
         <br>
 
         <label class="atributo" for="senha">Senha:</label>
+
         <br>
+
         <input type="password" id="senha" name="senha" class="input" placeholder="Digite sua senha" required>
+        
         <br>
 
         <button type="submit">Entrar</button>
