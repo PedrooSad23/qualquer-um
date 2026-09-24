@@ -19,7 +19,7 @@
 
         <br>
 
-        <input type="text" name="username" placeholder="Ex:Joaozinho do Grau" class="input">
+        <input type="text" name="username" placeholder="Ex:Joaozinho do Grau" class="input" required>
 
         <br>
 
@@ -27,7 +27,7 @@
 
         <br>
 
-        <input type="text" id="nome" name="nome" class="input" placeholder="Ex:Pedro Felipe">
+        <input type="text" id="nome" name="nome" class="input" placeholder="Ex:Pedro Felipe" required>
 
         <br>
 
@@ -35,7 +35,7 @@
 
         <br>
 
-        <input type="text" id="email" name="email" class="input" placeholder="Ex:estudante@gmail.com">
+        <input type="text" id="email" name="email" class="input" placeholder="Ex:estudante@gmail.com" required>
 
         <br>
 
@@ -43,7 +43,7 @@
 
         <br>
 
-        <input type="text" id="senha" name="senha" class="input" placeholder="Ex:987456123">
+        <input type="text" id="senha" name="senha" class="input" placeholder="Ex:987456123" required>
 
         <br>
 
