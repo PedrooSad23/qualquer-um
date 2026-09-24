@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,30 +8,22 @@
 </head>
 <body>
 
-    <label class="form">Login de Usuário</label>
-    <hr>
-
-    <form action="../verifica/verifica_login.php" method="post">
-
-        <label class="atributo" for="email">Email:</label>
-
-        <br>
-
-        <input type="text" id="email" name="email" class="input" placeholder="Digite seu email" required>
-
-        <br>
-
-        <label class="atributo" for="senha">Senha:</label>
-
-        <br>
-
-        <input type="password" id="senha" name="senha" class="input" placeholder="Digite sua senha" required>
+    <div class="card-sistema">
+        <h2 class="titulo-card">Login</h2>
+        <hr>
         
-        <br>
+        <form action="../verifica/verifica_login.php" method="post">
+            <label class="atributo">Email:</label>
+            <input type="email" name="email" class="input" placeholder="seu@email.com" required>
 
-        <button type="submit">Entrar</button>
+            <label class="atributo">Senha:</label>
+            <input type="password" name="senha" class="input" placeholder="Sua senha" required>
 
-    </form>
+            <button type="submit" class="btn-submit-full">Entrar</button>
+        </form>
+
+        <a href="../index.php" class="btn-link btn-voltar">Voltar</a>
+    </div>
 
 </body>
 </html>

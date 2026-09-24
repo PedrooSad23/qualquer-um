@@ -1,31 +1,37 @@
 <?php
-// Protege a página: só entra se estiver logado
+
 require_once "../verifica/verifica_sessao.php";
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal</title>
+
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
 
-    <div class="container">
-        <h2>Bem-vindo(a), <?php echo $_SESSION['nome']; ?>!</h2>
+    <div class="card-sistema" style="text-align: center;">
+        <h2 class="titulo-card">
+            Bem-vindo(a)
+            <br>
+            <span><?php echo $_SESSION['nome']; ?></span>
+        </h2>
+        
         <hr>
 
-        <p> Usuário <?php echo $_SESSION['username']; ?></p>
-
-        <p>E-mail: <?php echo $_SESSION['email']; ?></p>
+        <p class="atributo" style="margin-top: 10px;">Utilizador: <span><?php echo $_SESSION['username']; ?></span></p>
+        <p class="atributo">E-mail:<?php echo $_SESSION['email']; ?></span></p>
         
-        <br>
+        <a href="../postagem/form_post.php" class="btn-link">Nova Postagem</a>
 
-        <a href="../index.php">
-            <button>Sair do Sistema</button>
-        </a>
+        <a href="../verifica/logout.php" class="btn-link btn-sair">Sair do Sistema</a>
     </div>
 
 </body>
+
 </html>
