@@ -11,8 +11,5 @@ $sql = "INSERT INTO postagem (texto, idusuario) VALUES ('$texto', '$idusuario')"
 
 if (mysqli_query($conexao, $sql)) {
     header("Location: ../home/principal.php");
-
-} else {
-    echo "Erro: " . mysqli_error($conexao);
 }
 ?>

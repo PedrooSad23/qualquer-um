@@ -120,3 +120,11 @@ hr {
 .btn-sair:hover {
     background-color: #c0392b;
 }
+
+.card-sucesso {
+    text-align: center;
+}
+
+.titulo-sucesso {
+    margin-bottom: 20px;
+}

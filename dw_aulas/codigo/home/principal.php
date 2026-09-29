@@ -24,7 +24,7 @@ require_once "../verifica/verifica_sessao.php";
         
         <hr>
 
-        <p class="atributo" style="margin-top: 10px;">Utilizador: <span><?php echo $_SESSION['username']; ?></span></p>
+        <p class="atributo" style="margin-top: 10px;">Username: <span><?php echo $_SESSION['username']; ?></span></p>
         <p class="atributo">E-mail:<?php echo $_SESSION['email']; ?></span></p>
         
         <a href="../postagem/form_post.php" class="btn-link">Nova Postagem</a>
