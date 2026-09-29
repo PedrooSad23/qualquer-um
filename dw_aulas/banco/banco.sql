@@ -39,7 +39,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `mydb`.`postagem` (
   `idpostagem` INT NOT NULL AUTO_INCREMENT,
   `texto` VARCHAR(140) NOT NULL,
-  `data_hora` TIMESTAMP NULL,
+  `data_hora` TIMESTAMP NOT NULL,
   `idusuario` INT NOT NULL,
   PRIMARY KEY (`idpostagem`),
   INDEX `fk_postagem_usuario_idx` (`idusuario` ASC) VISIBLE,

@@ -29,8 +29,12 @@ require_once "../verifica/verifica_sessao.php";
         
         <a href="../postagem/form_post.php" class="btn-link">Nova Postagem</a>
 
+        <a href="../postagem/list_post.php" class="btn-link btn-login-home">Lista de Postagem</a>
+
         <a href="../verifica/logout.php" class="btn-link btn-sair">Sair do Sistema</a>
-    </div>
+
+
+    </div>  
 
 </body>
 

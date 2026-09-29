@@ -1,5 +1,4 @@
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f4f6f9;
     margin: 0;
     display: flex;
@@ -61,7 +60,6 @@ button {
     border-radius: 6px;
     font-size: 15px;
     font-weight: bold;
-    cursor: pointer;
     width: 100%;
     margin-top: 20px;
     transition: background-color 0.2s;
@@ -127,4 +125,42 @@ hr {
 
 .titulo-sucesso {
     margin-bottom: 20px;
+}
+
+.tabela {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;border
+    border: 1px solid;
+}
+
+.tabela th, 
+.tabela td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+.tabela th {
+    font-weight: bold;
+    color: #444;
+}
+
+.link-excluir {
+    color: #e74c3c;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.link-excluir:hover {
+    text-decoration: underline;
+}
+
+.btn-voltar {
+    background-color: #95a5a6;
+}
+
+.btn-voltar:hover {
+    background-color: #7f8c8d;
 }
