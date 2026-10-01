@@ -13,9 +13,9 @@
         <h2 class="titulo-card">Página Inicial</h2>
         <p class="subtitulo-home">Escolha o que deseja fazer:</p>
         
-        <a href="usuario/form_usuario.php" class="btn-link">Criar Cadastro</a>
+        <a href="usuario/form_usuario.php" class="btn-link">Cadastrar-se</a>
         
-        <a href="usuario/login_usuario.php" class="btn-link btn-login-home">Fazer Login</a>
+        <a href="usuario/login_usuario.php" class="btn-link btn-login-home">Login</a>
     </div>
 
 </body>
