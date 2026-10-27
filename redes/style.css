@@ -1,0 +1,71 @@
+/* Fundo de toda a página com a imagem */
+body {
+    font-family: Arial, sans-serif;
+    color: #f3f4f6;
+    margin: 0;
+    padding: 25px;
+    line-height: 1.7;
+    background-color: #0f172a;
+    background-image: url("lindos.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+/* Fundo dos blocos para o texto continuar legível */
+header, section, pre, footer {
+    background-color: rgba(31, 41, 55, 0.85);
+    border-radius: 10px;
+}
+
+header {
+    text-align: center;
+    padding: 25px;
+    margin-bottom: 25px;
+}
+
+h1, h2 {
+    color: #38bdf8;
+}
+
+h3 {
+    color: #93c5fd;
+}
+
+section {
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+pre {
+    background-color: rgba(3, 7, 18, 0.95);
+    color: #4ade80;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+}
+
+code {
+    font-family: monospace;
+}
+
+span {
+    background-color: red;
+}
+
+.aviso {
+    color: #fbbf24;
+}
+
+.destaque {
+    color: #86efac;
+}
+
+footer {
+    text-align: center;
+    color: #9ca3af;
+    padding: 20px;
+}

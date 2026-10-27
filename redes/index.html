@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guia Linux - Servidor Web e Redes</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Servidor Web e Diagnóstico de Redes no Linux</h1>
+      <p>Guia de estudo: conceitos, comandos e testes práticos</p>
+    </header>
+    
+    <section>
+        <h2>Identificação do Aluno</h2>
+        <p><strong>Nome:</strong> Pedro Felipe Rosa dos Santos</p>
+        <p><strong>Número da Máquina:</strong> 27</p>
+        <p><strong>Endereço IP:</strong> <code>192.168.24.115</code></p>
+    </section>
+    
+    <section>
+      <h2>1. O que é um servidor web?</h2>
+      <p>
+        Um servidor web é um programa responsável por receber solicitações de
+        navegadores e enviar respostas por meio do protocolo HTTP ou HTTPS.
+        Essas respostas podem conter páginas HTML, arquivos CSS, JavaScript,
+        imagens e outros recursos.
+      </p>
+      <p>
+        Quando você acessa um endereço como
+        <code>http://localhost:9000</code>, o navegador solicita uma página ao
+        servidor que está funcionando no próprio computador.
+      </p>
+      <p>
+        O Python possui um módulo chamado <code>http.server</code>, que permite
+        iniciar um servidor HTTP simples sem instalar bibliotecas adicionais.
+        Ele é útil para aprender, testar páginas e desenvolver sites localmente.
+      </p>
+    </section>
+
+    <section>
+      <h2>2. Verificar se o Python está instalado</h2>
+      <p>
+        Antes de iniciar o servidor, verifique se o Python 3 está disponível no
+        sistema. O comando abaixo mostra a versão instalada.
+      </p>
+      <pre><code>python3 --version</code></pre>
+      <p>
+        Se o Python não estiver instalado, em sistemas Ubuntu ou Debian você
+        pode instalá-lo com os comandos:
+      </p>
+      <pre><code>sudo apt update
+sudo apt install python3</code></pre>
+      <p>
+        O comando <code>sudo</code> executa uma operação com privilégios
+        administrativos. O comando <code>apt</code> gerencia pacotes em
+        distribuições baseadas em Debian.
+      </p>
+    </section>
+
+    <section>
+      <h2>3. Criar a estrutura do site</h2>
+      <p>
+        Para organizar o projeto, crie uma pasta e os arquivos necessários. O
+        arquivo <code>index.html</code> será a página principal.
+      </p>
+      <pre><code>mkdir -p ~/meu-site/imagens
+cd ~/meu-site 
+touch index.html style.css script.js</code></pre>
+      <p>Estrutura sugerida:</p>
+      <pre><code>meu-site/
+├── index.html 
+├── style.css 
+├── script.js 
+└── imagens/</code></pre>
+      <p>
+        O HTML define o conteúdo, o CSS controla a aparência e o JavaScript
+        adiciona interatividade. A pasta <code>imagens</code> pode guardar
+        imagens utilizadas na página.
+      </p>
+    </section>
+
+    <section>
+      <h2>4. Como iniciar um servidor web com Python</h2>
+      <p>
+        Entre na pasta que contém o arquivo <code>index.html</code> e execute:
+      </p>
+      <pre><code>cd ~/meu-site
+python3 -m http.server 9000</code></pre>
+      <p>
+        O comando <code>python3 -m http.server 9000</code> executa o módulo HTTP
+        do Python e inicia o servidor na porta TCP 9000.
+      </p>
+      <ul>
+        <li><code>python3</code>: executa o interpretador Python.</li>
+        <li><code>-m</code>: executa um módulo disponível no Python.</li>
+        <li><code>http.server</code>: fornece um servidor HTTP simples.</li>
+        <li><code>8000</code>: define a porta usada pelo servidor.</li>
+      </ul>
+      <p>Para acessar o site, abra o navegador e digite:</p>
+      <pre><code>http://localhost:9000</code></pre>
+      <p>
+        O endereço <code>localhost</code> representa o próprio computador. Para
+        interromper o servidor, pressione <code>Ctrl + C</code> no terminal.
+      </p>
+      <p class="aviso">
+        Atenção: esse servidor é destinado a testes e desenvolvimento. Não é
+        recomendado para hospedar aplicações de produção expostas à internet.
+      </p>
+    </section>
+
+    <section>
+      <h2>5. O que é um endereço IP?</h2>
+      <p>
+        O endereço IP identifica uma interface em uma rede IP e permite que
+        dispositivos encaminhem dados até o destino. Em redes locais, um
+        computador geralmente possui um endereço privado, como
+        <code>192.168.1.50</code>.
+      </p>
+      <p>Comandos úteis para consultar os endereços e as interfaces:</p>
+      <pre><code>ip addr
+ip -br addr 
+ip link 
+hostname -I</code></pre>
+      <ul>
+        <li><code>ip addr</code>: mostra endereços IP e interfaces.</li>
+        <li><code>ip -br addr</code>: apresenta um resumo mais compacto.</li>
+        <li><code>ip link</code>: mostra as interfaces e seu estado.</li>
+        <li><code>hostname -I</code>: mostra os endereços IP do computador.</li>
+      </ul>
+      <p>
+        Interfaces como <code>eth0</code>, <code>enp3s0</code> e
+        <code>wlan0</code> podem representar conexões Ethernet ou Wi-Fi,
+        dependendo do sistema.
+      </p>
+    </section>
+
+    <section>
+      <h2>6. O que é uma rota de rede?</h2>
+      <p>
+        Uma rota indica como o sistema deve encaminhar pacotes para outras
+        redes. O gateway padrão normalmente é o roteador utilizado para alcançar
+        destinos fora da rede local.
+      </p>
+      <pre><code>ip route</code></pre>
+      <p>
+        Procure uma linha iniciada por <code>default via</code>. Ela costuma
+        indicar o gateway padrão, quando configurado.
+      </p>
+    </section>
+
+    <section>
+      <h2>7. Como testar a conectividade</h2>
+      <p>
+        O comando <code>ping</code> envia mensagens de teste para verificar se
+        um destino responde pela rede.
+      </p>
+      <pre><code>ping -c 4 127.0.0.1
+ping -c 4 8.8.8.8 
+ping -c 4 google.com</code></pre>
+      <ul>
+        <li>
+          <code>127.0.0.1</code>: testa a comunicação com o próprio computador.
+        </li>
+        <li><code>8.8.8.8</code>: testa um destino externo por endereço IP.</li>
+        <li><code>google.com</code>: testa o acesso por nome de domínio.</li>
+        <li><code>-c 4</code>: envia quatro solicitações e encerra o teste.</li>
+      </ul>
+      <p>
+        Se um endereço IP responder, mas o nome do domínio não, pode haver um
+        problema de resolução DNS. Entretanto, alguns destinos bloqueiam
+        respostas ao ping, então um teste sem resposta não comprova sozinho que
+        a rede está fora do ar.
+      </p>
+    </section>
+
+    <section>
+      <h2>8. O que são portas de rede?</h2>
+      <p>
+        Portas TCP e UDP identificam pontos de comunicação utilizados pelos
+        serviços de um computador. Um servidor web pode, por exemplo, escutar na
+        porta TCP 9000.
+      </p>
+      <p>Para verificar as portas e conexões:</p>
+      <pre><code>ss -lnt
+ss -lun 
+ss -tunap 
+ss -lnt | grep ':9000'</code></pre>
+      <ul>
+        <li><code>ss -lnt</code>: lista portas TCP em estado de escuta.</li>
+        <li><code>ss -lun</code>: lista sockets UDP.</li>
+        <li><code>ss -tunap</code>: mostra conexões e sockets TCP/UDP.</li>
+        <li>
+          <code>grep ':9000'</code>: filtra linhas relacionadas à porta 8000.
+        </li>
+      </ul>
+      <p>
+        Se o servidor estiver ativo, você deverá encontrar uma entrada
+        relacionada à porta 8000. A opção <code>-p</code> pode mostrar o
+        processo associado, dependendo das permissões.
+      </p>
+    </section>
+
+    <section>
+      <h2>9. Como testar a resposta HTTP</h2>
+      <p>
+        O programa <code>curl</code> permite enviar solicitações HTTP pelo
+        terminal. Ele é útil para verificar se o servidor responde sem precisar
+        abrir um navegador.
+      </p>
+      <pre><code>curl -I http://localhost:8000
+curl http://localhost:8000</code></pre>
+      <p>
+        A opção <code>-I</code> solicita apenas os cabeçalhos da resposta. Uma
+        resposta HTTP <code>200 OK</code> indica que a solicitação foi atendida
+        com sucesso.
+      </p>
+      <p>
+        Se aparecer uma mensagem de conexão recusada, verifique se o servidor
+        está em execução e se está escutando na porta correta.
+      </p>
+    </section>
+
+    <section>
+      <h2>10. O que é DNS?</h2>
+      <p>
+        O DNS traduz nomes de domínio, como <code>google.com</code>, em
+        informações de endereçamento usadas para localizar serviços na rede.
+      </p>
+      <pre><code>getent hosts google.com
+cat /etc/resolv.conf 
+resolvectl status</code></pre>
+      <ul>
+        <li>
+          <code>getent hosts</code>: consulta a resolução de nomes do sistema.
+        </li>
+        <li>
+          <code>/etc/resolv.conf</code>: exibe a configuração de resolvedores
+          DNS.
+        </li>
+        <li>
+          <code>resolvectl status</code>: mostra informações do resolvedor em
+          sistemas compatíveis.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>11. Como verificar o firewall</h2>
+      <p>
+        O firewall controla quais conexões de rede podem entrar ou sair do
+        sistema. Regras restritivas podem impedir que outros dispositivos
+        acessem um servidor web.
+      </p>
+      <pre><code>sudo ufw status
+sudo nft list ruleset</code></pre>
+      <p>
+        O primeiro comando verifica o estado do UFW, se estiver instalado. O
+        segundo lista as regras do nftables. Não altere as regras sem
+        compreender as consequências para a segurança do sistema.
+      </p>
+    </section>
+
+    <section>
+      <h2>12. Acessar o servidor pela rede local</h2>
+      <p>
+        Para permitir que outros dispositivos da mesma rede tentem acessar o
+        site, você pode iniciar o servidor escutando em todas as interfaces
+        IPv4:
+      </p>
+      <pre><code>python3 -m http.server 9000 --bind 0.0.0.0</code></pre>
+      <p>Consulte o IP do computador:</p>
+      <pre><code>hostname -I</code></pre>
+      <p>
+        Se o endereço local for <code>192.168.1.50</code>, por exemplo, acesse
+        no outro dispositivo:
+      </p>
+      <pre><code>http://192.168.1.50:8000</code></pre>
+      <p>
+        Substitua o exemplo pelo IP real. Os dois dispositivos precisam ter
+        conectividade entre si, e o firewall não pode bloquear a conexão. Não
+        exponha esse servidor diretamente à internet.
+      </p>
+    </section>
+
+    <section>
+      <h2>13. Sequência rápida de diagnóstico</h2>
+      <p>
+        Se o site não abrir, execute os comandos abaixo em sequência para
+        investigar a interface, a rota, a porta e a resposta HTTP:
+      </p>
+      <pre><code>ip -br addr
+ip route 
+ping -c 4 8.8.8.8 
+ss -lnt | grep ':8000' 
+curl -I http://localhost:8000</code></pre>
+      <p>
+        Analise cada resultado. Se o IP local estiver configurado, mas a porta
+        8000 não aparecer, confirme se o servidor foi iniciado. Se o acesso
+        local funcionar, mas outro dispositivo não conseguir acessar, investigue
+        o IP utilizado, a conectividade local e o firewall.
+      </p>
+    </section>
+
+    <footer>
+      <p>Guia de estudo de Linux, Python, HTTP e redes de computadores.</p>
+    </footer>
+  </body>
+</html>
