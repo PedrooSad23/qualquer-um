@@ -12,5 +12,9 @@
     <br>
 
     <a href="listar_postagem.php">Lista de Postagem</a>
+
+    <br>
+
+    <a href="sair.php">Sair</a>
 </body>
 </html>

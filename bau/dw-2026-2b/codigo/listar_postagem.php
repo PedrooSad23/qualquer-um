@@ -99,6 +99,10 @@
         }
         ?>
     </div>
+
+    <br>
+
+    <a href="principal.php">Voltar a Tela Inicial</a>
 </body>
 
 </html>
