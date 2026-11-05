@@ -6,6 +6,11 @@
     <title>Document</title>
 </head>
 <body>
+
     <a href="form_postagem.php">Fazer nova postagem</a>
+
+    <br>
+
+    <a href="listar_postagem.php">Lista de Postagem</a>
 </body>
 </html>

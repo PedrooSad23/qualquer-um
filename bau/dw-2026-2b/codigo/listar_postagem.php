@@ -32,9 +32,11 @@
 
         $sql = "SELECT postagem.idpostagem, postagem.texto, postagem.data_hora, postagem.idusuario, usuario.username, usuario.nome, usuario.foto
             FROM postagem, usuario
-            WHERE postagem.idusuario = usuario.idusuario;";
+            WHERE postagem.idusuario = usuario.idusuario";
 
-        $postagens = mysqli_query($conexao, $sql);
+        $comando = mysqli_prepare($conexao, $sql);
+        mysqli_stmt_execute($comando);
+        $postagens = mysqli_stmt_get_result($comando);
 
         while ($postagem = mysqli_fetch_array($postagens)) {
             $idpostagem = $postagem['idpostagem'];
@@ -56,11 +58,17 @@
             echo $data_hora;
 
             echo "<div>";
+            
             $sql2 = "SELECT comentario.idcomentario, comentario.idusuario, comentario.texto, usuario.username, usuario.nome, usuario.foto
                 FROM comentario, usuario
-                WHERE idpostagem = $idpostagem
-                AND comentario.idusuario = usuario.idusuario ORDER BY comentario.idcomentario;";
-            $comentarios = mysqli_query($conexao, $sql2);
+                WHERE comentario.idpostagem = ?
+                AND comentario.idusuario = usuario.idusuario ORDER BY comentario.idcomentario";
+            
+            $comando2 = mysqli_prepare($conexao, $sql2);
+            mysqli_stmt_bind_param($comando2, "i", $idpostagem);
+            mysqli_stmt_execute($comando2);
+            $comentarios = mysqli_stmt_get_result($comando2);
+
             $quantidade_comentario = mysqli_num_rows($comentarios);
             if ($quantidade_comentario == 0) {
                 echo "Seja o primeiro a comentar...";
@@ -76,7 +84,7 @@
                     echo "<br>";
                     echo $idcomentario;
                     echo "<img src='fotos_user/$comentario_foto_usuario'>";
-                    echo "$comentario_nome_usuario ($comentario_username_usuario)";
+                    echo "$comentario_nome_usuario ($comentario_username_usuario): ";
                     echo $comentario_texto;
                 }
             }
