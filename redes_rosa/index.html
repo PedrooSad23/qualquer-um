@@ -1,0 +1,324 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#070b14">
+
+    <title>NEXUS CORE | Infrastructure Dashboard</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="layout">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">N</div>
+
+            <div>
+                <div class="brand-name">NEXUS <span>CORE</span></div>
+                <div class="brand-subtitle">INFRASTRUCTURE</div>
+            </div>
+        </div>
+
+        <div class="nav-label">WORKSPACE</div>
+
+        <nav class="nav">
+            <a href="#inicio" class="active">
+                <span class="nav-icon">◈</span>
+                Visão geral
+            </a>
+
+            <a href="#identificacao">
+                <span class="nav-icon">◎</span>
+                Identificação
+            </a>
+
+            <a href="#servicos">
+                <span class="nav-icon">▣</span>
+                Serviços
+            </a>
+
+            <a href="#arquitetura">
+                <span class="nav-icon">⌘</span>
+                Arquitetura
+            </a>
+
+            <a href="#acesso">
+                <span class="nav-icon">↗</span>
+                Acessar arquivos
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <small>AMBIENTE</small>
+            <strong>● SERVIDOR LOCAL</strong>
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main">
+
+        <div class="topbar">
+
+            <div class="breadcrumb">
+                NEXUS CORE / <strong>Dashboard</strong>
+            </div>
+
+            <div class="operator">
+                <div class="avatar">P</div>
+
+                <div class="operator-info">
+                    <strong>Pedro Felipe</strong>
+                    <small>Estudante • Bancada 26</small>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- HERO -->
+
+        <header class="hero" id="inicio">
+
+            <div class="eyebrow">
+                SYSTEM OVERVIEW / 001
+            </div>
+
+            <h1>
+                Infrastructure<br>
+                <span>Control Center.</span>
+            </h1>
+
+            <p>
+                Painel de gerenciamento da infraestrutura local
+                de servidores implementada com Docker.
+            </p>
+
+        </header>
+
+
+        <!-- IDENTIFICATION -->
+
+        <section class="section" id="identificacao">
+
+            <div class="section-heading">
+                <h2>Identificação do ambiente</h2>
+                <small>HOST INFORMATION</small>
+            </div>
+
+            <div class="panel">
+
+                <div class="identity-grid">
+
+                    <div class="identity-item">
+                        <label>ESTUDANTE</label>
+                        <strong>Pedro Felipe Rosa dos Santos</strong>
+                    </div>
+
+                    <div class="identity-item">
+                        <label>NÚMERO DA BANCADA</label>
+                        <strong>26</strong>
+                    </div>
+
+                    <div class="identity-item">
+                        <label>ENDEREÇO IP LOCAL</label>
+                        <strong>192.168.24.5</strong>
+                    </div>
+
+                    <div class="identity-item">
+                        <label>PORTA DO SERVIDOR WEB</label>
+                        <strong>8181 → 80</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- SERVICES -->
+
+        <section class="section" id="servicos">
+
+            <div class="section-heading">
+                <h2>Serviços da infraestrutura</h2>
+                <small>DOCKER CONTAINERS</small>
+            </div>
+
+            <div class="service-grid">
+
+                <article class="service-card">
+
+                    <div class="service-top">
+                        <div class="service-icon">🌐</div>
+                        <span class="service-port">:8181</span>
+                    </div>
+
+                    <h3>Web Server</h3>
+
+                    <p>
+                        Nginx responsável por disponibilizar
+                        a página HTML através do navegador.
+                    </p>
+
+                    <span class="service-status">
+                        CONFIGURADO
+                    </span>
+
+                </article>
+
+
+                <article class="service-card">
+
+                    <div class="service-top">
+                        <div class="service-icon">☁</div>
+                        <span class="service-port">:8080</span>
+                    </div>
+
+                    <h3>File Server</h3>
+
+                    <p>
+                        File Browser responsável pelo armazenamento,
+                        organização e compartilhamento de arquivos.
+                    </p>
+
+                    <span class="service-status">
+                        CONFIGURADO
+                    </span>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- ARCHITECTURE -->
+
+        <section class="section" id="arquitetura">
+
+            <div class="section-heading">
+                <h2>Arquitetura do sistema</h2>
+                <small>TECHNICAL DOCUMENTATION</small>
+            </div>
+
+            <div class="panel description">
+
+                <p>
+                    <strong>Docker:</strong> plataforma utilizada
+                    para executar aplicações em contêineres isolados,
+                    facilitando a implantação e o gerenciamento dos serviços.
+                </p>
+
+                <p>
+                    <strong>Servidor Web:</strong> utiliza Nginx para
+                    disponibilizar a página HTML na porta
+                    <span class="code-label">8181</span>,
+                    redirecionada para a porta 80 do contêiner.
+                </p>
+
+                <p>
+                    <strong>Servidor de arquivos:</strong> utiliza
+                    File Browser para permitir o envio, download,
+                    organização e gerenciamento de documentos
+                    pela interface Web na porta
+                    <span class="code-label">8080</span>.
+                </p>
+
+                <p>
+                    <strong>Volumes:</strong> conectam os diretórios
+                    internos dos contêineres à máquina hospedeira,
+                    garantindo a persistência dos arquivos e configurações.
+                </p>
+
+                <p>
+                    <strong>Autenticação:</strong> o File Browser
+                    permite cadastrar usuários e senhas, controlando
+                    o acesso aos documentos de acordo com as permissões.
+                </p>
+
+                <p>
+                    <strong>Docker Compose:</strong> gerencia a
+                    configuração e a inicialização dos dois serviços,
+                    permitindo sua execução independente e simultânea.
+                </p>
+
+                <p>
+                    Dessa maneira, a infraestrutura centraliza o
+                    armazenamento de arquivos, facilita o compartilhamento
+                    de informações e simplifica a administração dos serviços
+                    na rede local.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ACCESS -->
+
+        <section class="section" id="acesso">
+
+            <div class="access-panel panel">
+
+                <div class="eyebrow">
+                    FILE MANAGEMENT SYSTEM
+                </div>
+
+                <h2>Acesse seu servidor de arquivos</h2>
+
+                <p>
+                    Entre no ambiente de gerenciamento para
+                    visualizar, enviar, baixar e organizar
+                    seus arquivos armazenados localmente.
+                </p>
+
+                <a
+                    class="access-button"
+                    href="http://192.168.24.5:8080"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    ACESSAR FILE SERVER
+
+                    <span>↗</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+
+        <footer class="footer">
+
+            <span>NEXUS CORE © 2026</span>
+
+            <span>
+                PEDRO FELIPE ROSA DOS SANTOS • BANCADA 26
+            </span>
+
+        </footer>
+
+    </main>
+
+</div>
+
+</body>
+</html>
