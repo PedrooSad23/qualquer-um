@@ -1,0 +1,24 @@
+services:
+  web:
+    image: php:8.1-apache
+    container_name: app_web
+    restart: always
+    ports:
+      - "8181:80"
+    volumes:
+      - .:/var/www/html
+
+  nuvem:
+    image: filebrowser/filebrowser:latest
+    container_name: nuvem
+    restart: always
+    ports:
+      - "8080:80"
+    volumes:
+      - dados_nuvem:/srv
+      - banco_nuvem:/database
+
+
+volumes:
+  dados_nuvem:
+  banco_nuvem:
