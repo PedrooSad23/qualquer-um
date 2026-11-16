@@ -1,0 +1,31 @@
+services:
+  monitor:
+    image: louislam/uptime-kuma:latest
+    container_name: monitoramento
+    restart: always
+    ports:
+      - "3001:3001"
+
+  web:
+    image: php:8.1-apache
+    container_name: web
+    restart: always
+    ports:
+      - "8181:80"
+
+  velocidade:
+    image: lscr.io/linuxserver/librespeed:latest
+    container_name: velocidade
+    restart: always
+    ports:
+      - "8085:80"
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Sao_Paulo
+
+    volumes:
+    - .:/var/www/html
+
+volumes:
+    dados_kuma:
